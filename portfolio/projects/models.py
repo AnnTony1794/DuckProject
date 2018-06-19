@@ -5,7 +5,7 @@ from blog.models import Category
 
 class Project(models.Model):
     title = models.CharField(max_length=200, verbose_name='Título')
-    image = models.ImageField(verbose_name='Imagen', upload_to='courses')
+    image = models.ImageField(verbose_name='Imagen', upload_to='projects')
     content = RichTextField(verbose_name='Contenido')
     created = models.DateTimeField(auto_now=True, verbose_name='Fecha de edicion')
     updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de edicion')
