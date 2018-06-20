@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course
+from .models import Course, School
 from django.utils.safestring import mark_safe
 # Register your models here.
 
@@ -23,3 +23,7 @@ class CourseAdmin(admin.ModelAdmin):
         return mark_safe(html_response)
 
     list_display_categories.short_description = 'Categorias'
+
+@admin.register(School)
+class SchoolAdmin(admin.ModelAdmin):
+    pass

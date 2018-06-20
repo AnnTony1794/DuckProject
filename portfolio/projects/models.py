@@ -8,6 +8,7 @@ class Project(models.Model):
     image = models.ImageField(verbose_name='Imagen', upload_to='projects')
     content = RichTextField(verbose_name='Contenido')
     created = models.DateTimeField(auto_now=True, verbose_name='Fecha de edicion')
+    repo = models.URLField(max_length=200, verbose_name='Repositorio', default='#')
     updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de edicion')
     categories = models.ManyToManyField(Category, verbose_name='Categorias', related_name='get_projectPost')
 
