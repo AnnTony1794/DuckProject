@@ -9,15 +9,49 @@ style="background-image: url('{% static 'core/img/bgProjects.jpg' %}');"
 {% endblock %}
 
 {% block page_title %}
-Portafolio
+{{project.language|default_if_none:"Programación"}}
 {% endblock %}
 
 {% block page_subtitle %}
-Proyectos desarrollados <br>en mi carrera como estudiante.
+{{project.title}}
 {% endblock %}
 
 {% block content %}
 
-	Proyectos
+	<!-- Why Choose Us -->
+	<div id="features" class="section md-padding bg-grey">
+
+            <!-- Container -->
+            <div class="container">
+
+                <!-- Row -->
+                <div class="row">
+    
+                    <!-- why choose us content -->
+                    <div class="col-sm-offset-2 col-md-8">
+                        <div class="section-header">
+                            <h2 class="title">{{project.title}}</h2>
+                        </div>
+                        <p class="text-justify">
+                           {{project.content|safe}}
+                           <strong>Repo: <a target="_blank" href="{{project.repo}}">{{project.repo}}</a></strong>
+                        </p>
+                        
+                        <br>                       
+                    </div>
+                    <!-- /why choose us content -->
+    
+                   
+    
+                </div>
+                <!-- /Row -->
+                <a class="lightbox" href="{{project.image.url}}" target="_blank"><img class="img-responsive col-sm-offset-2 col-md-8" src="{{project.image.url}}"></a>
+                x
+            </div>
+            <!-- /Container -->
+           
+        </div>
+        <!-- /Why Choose Us -->
+
     
 {% endblock %}

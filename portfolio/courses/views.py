@@ -7,8 +7,10 @@ from .models import Course
 class CoursesView(ListView):
     model = Course
     template_name = 'courses/courses.html'
+    context_object_name = 'course_list'
 
 
 class CourseView(DetailView):
     model = Course
     template_name = 'courses/course.html'
+    context_object_name = 'course'

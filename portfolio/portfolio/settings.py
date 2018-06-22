@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'projects.apps.ProjectsConfig',
     'ckeditor',
+    'rest_framework',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
