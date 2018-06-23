@@ -133,3 +133,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# HTTPS
+SECURE_SSL_REDIRECT = True
+
+
+
+#Ckeditor config
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None
+    }
+}

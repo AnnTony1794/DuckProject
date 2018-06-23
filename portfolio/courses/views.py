@@ -8,6 +8,7 @@ class CoursesView(ListView):
     model = Course
     template_name = 'courses/courses.html'
     context_object_name = 'course_list'
+    paginate_by = 5
 
 
 class CourseView(DetailView):

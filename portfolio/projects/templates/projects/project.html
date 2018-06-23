@@ -26,7 +26,7 @@ style="background-image: url('{% static 'core/img/bgProjects.jpg' %}');"
 
                 <!-- Row -->
                 <div class="row">
-    
+
                     <!-- why choose us content -->
                     <div class="col-sm-offset-2 col-md-8">
                         <div class="section-header">
@@ -34,24 +34,25 @@ style="background-image: url('{% static 'core/img/bgProjects.jpg' %}');"
                         </div>
                         <p class="text-justify">
                            {{project.content|safe}}
-                           <strong>Repo: <a target="_blank" href="{{project.repo}}">{{project.repo}}</a></strong>
+                           <br><br>
+                           <strong>Link: <a target="_blank" href="{{project.repo}}">{{project.repo}}</a></strong>
                         </p>
-                        
-                        <br>                       
+
+                        <br>
                     </div>
                     <!-- /why choose us content -->
-    
-                   
-    
+
+
+
                 </div>
                 <!-- /Row -->
                 <a class="lightbox" href="{{project.image.url}}" target="_blank"><img class="img-responsive col-sm-offset-2 col-md-8" src="{{project.image.url}}"></a>
                 x
             </div>
             <!-- /Container -->
-           
+
         </div>
         <!-- /Why Choose Us -->
 
-    
+
 {% endblock %}

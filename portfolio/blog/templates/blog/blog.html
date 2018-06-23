@@ -23,31 +23,31 @@ style="background-image: url('{% static 'core/img/blog.jpg' %}');"
 
 				<!-- Container -->
 				<div class="container">
-		
+
 					<!-- Row -->
 					<div class="row">
-						
+
 						<!-- why choose us content -->
-						<div class=" col-md-12">
+						<div class=" col-md-8 col-sm-offset-2">
 							<div class="section-header">
 								<h2 class="title">{{post.title}}</h2>
 							</div>
-							<a class="row lightbox" href="{{post.image.url}}" target="_blank"><img class="img-responsive col-sm-offset-2 col-md-8" src="{{post.image.url}}"></a>
+							<a class="row lightbox" href="{{post.image.url}}" target="_blank"><img class="img-responsive  col-md-12" src="{{post.image.url}}"></a>
 							<p class="text-justify">
 							   {{post.content|safe}}
 							</p>
-							<br>                       
+							<br>
 						</div>
 						<!-- /why choose us content -->
-		
-					   
-		
+
+
+
 					</div>
 					<!-- /Row -->
 				</div>
 				<!-- /Container -->
-		
+
 			</div>
 			<!-- /Why Choose Us -->
-    
+
 {% endblock %}
