@@ -71,10 +71,10 @@ Proyectos desarrollados <br>a lo largo de mi carrera.
                         <h2 class="title">Proyectos</h2>
                     </div>
                     <!-- /Section header -->
-
+                    <div class="row">
                     {% for project in project_list %}
                     <!-- Work -->
-                    <div class=row>
+                    <div class="column">
                     <div class="col-md-4 col-xs-6 work">
                         <img class="img-responsive" src="{{project.image.url}}" border="20px">
                         <div class="overlay"></div>
@@ -87,18 +87,11 @@ Proyectos desarrollados <br>a lo largo de mi carrera.
                             </div>
                         </div>
                     </div>
-                    <!-- why choose us content -->
-				<div class="col-sm-offset-1 col-md-7">
-
-					<p class="text-justify">
-						{{project.content|safe|slice:':200'}}...
-						<a class=" btn" href="{% url 'projects:project' project.id project.title|slugify %}">Leer más</a>
-					</p>
-				</div>
-				<!-- /why choose us content -->
                     </div>
                     <!-- /Work -->
+
                     {% endfor %}
+                    </div>
 
                 </div>
                 <!-- /Row -->
@@ -107,5 +100,10 @@ Proyectos desarrollados <br>a lo largo de mi carrera.
             <!-- /Container -->
 
         </div>
+         <style>
+  div.imagetiles div.col-lg-3.col-md-3.col-sm-3.col-xs-6{
+  padding: 0px;
+}
+    </style>
         <!-- /Portfolio -->
 {% endblock %}
