@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Blog, Category
+from .models import Blog, Category, Comment
 # Register your models here.
 
 @admin.register(Blog)
@@ -27,3 +27,8 @@ class BlogAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    pass

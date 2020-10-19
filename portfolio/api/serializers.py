@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from blog.models import Blog, Category
+from blog.models import Blog, Category, Comment
 from courses.models import Course, School
 from projects.models import Project
 
@@ -17,6 +17,12 @@ class BlogSerializer(serializers.HyperlinkedModelSerializer):
 
      class Meta:
         model = Blog
+        fields = '__all__'
+
+
+class CommentSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Comment
         fields = '__all__'
 
 

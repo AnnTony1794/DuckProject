@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*a3i#xs-p(+o4+w7k!*6ogw*&x#9=4d2q0xtxz9hck^(o4&%97'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['anntony.pythonanywhere.com', 'localhost']
+ALLOWED_HOSTS = ['anntony.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'projects.apps.ProjectsConfig',
     'ckeditor',
     'rest_framework',
+    'rest_framework.authtoken',
     'api.apps.ApiConfig',
 ]
 
@@ -135,7 +136,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # HTTPS
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 
 
@@ -145,4 +146,14 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': None
     }
+}
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASESS': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
 }

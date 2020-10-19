@@ -16,14 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-
+from rest_framework.authtoken import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('projects/', include('projects.urls')),
-    path('certificates/', include('courses.urls')),
-    path('', include('core.urls')),
-    path('blog/', include('blog.urls')),
-    path('api/', include('api.urls'))
+    # path('projects/', include('projects.urls')),
+    # path('certificates/', include('courses.urls')),
+    # path('', include('core.urls')),
+    # path('blog/', include('blog.urls')),
+    path('api/', include('api.urls')),
+    path('api_token/', views.obtain_auth_token)
 ]
 
 if settings.DEBUG:

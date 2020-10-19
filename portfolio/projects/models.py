@@ -1,5 +1,7 @@
+from django.utils.translation import ugettext_lazy as _ 
+from django.contrib.auth import get_user_model
 from django.db import models
-from ckeditor.fields import RichTextField
+
 from blog.models import Category
 # Create your models here.
 
@@ -7,11 +9,18 @@ class Project(models.Model):
     title = models.CharField(max_length=200, verbose_name='Título')
     image = models.ImageField(verbose_name='Imagen', upload_to='projects')
     language = models.CharField(max_length=200, verbose_name='Lenguaje', null=True)
-    content = RichTextField(verbose_name='Contenido')
+    content =models.TextField (verbose_name='Contenido')
     created = models.DateTimeField(auto_now=True, verbose_name='Fecha de edicion')
     repo = models.URLField(max_length=200, verbose_name='Repositorio', default='#', null=True)
     updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de edicion')
     categories = models.ManyToManyField(Category, verbose_name='Categorias', related_name='get_projectPost')
+    
+    user = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        verbose_name=_('User'),
+        related_name='projects'
+    )
 
     class Meta:
         verbose_name = 'Proyecto'
