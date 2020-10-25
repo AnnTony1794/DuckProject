@@ -36,8 +36,10 @@ class BlogPermissions(BasePermission):
     """You have permission to see all the blogs
     but can't create one if you are not registrated"""
     def has_permission(self, request, view):
-        if not request.user.is_authenticated and view.action == 'create':
+        if not request.user.is_authenticated and view.action in {'create', 'update', 'partial_update', 'destroy'}:
             return False
+        elif view.action == 'list':
+            return True
         
         return super().has_permission(request, view)
 
@@ -48,14 +50,15 @@ class BlogViewSet(viewsets.ModelViewSet):
 
 
 
-class GetOnlyPermission(BasePermission):
+class CommentsPermissions(BasePermission):
     """Can see all the comments, create and edit your owns"""
     def has_permission(self, request, view):
-        if view.action == 'list' and request.user.is_authenticated:
+        if view.action == 'list':
             return True
-        return False
+        elif not request.user.is_authenticated and view.action in {'create', 'update', 'partial_update', 'destroy'}:
+            return False
 
-@permission_classes((GetOnlyPermission, ))
+@permission_classes((CommentsPermissions, ))
 class CommentViweSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all().order_by('-created')
     serializer_class = CommentSerializer
@@ -65,6 +68,10 @@ class CommentViweSet(viewsets.ModelViewSet):
 class CategoryPermissions(BasePermission):
     """Can create your own categories and delete your owns."""
     def has_permission(self, request, view):
+        if view.action == 'list':
+            return True
+        elif not request.user.is_authenticated and view.action in {'create', 'update', 'partial_update', 'destroy'}:
+            return False
         return super().has_permission(request, view)
 
 @permission_classes((CategoryPermissions, ))
@@ -76,6 +83,10 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class CoursePermissions(BasePermission):
     """Can create, edit and delete your owns."""
     def has_permission(self, request, view):
+        if view.action == 'list':
+            return True
+        elif not request.user.is_authenticated and view.action in {'create', 'update', 'partial_update', 'destroy'}:
+            return False
         return super().has_permission(request, view)
 
 @permission_classes((CoursePermissions, ))
@@ -87,7 +98,9 @@ class CourseViewSet(viewsets.ModelViewSet):
 class SchoolPermissions(BasePermission):
     """Can create, edit and delete your owns."""
     def has_permission(self, request, view):
-        if not request.user.is_authenticated:
+        if view.action == 'list':
+            return True
+        elif not request.user.is_authenticated and view.action in {'create', 'update', 'partial_update', 'destroy'}:
             return False
         return super().has_permission(request, view)
 
@@ -100,7 +113,9 @@ class ShoolViewSet(viewsets.ModelViewSet):
 class ProjectPermissions(BasePermission):
     """Create, edit and eliminate your owns projects."""
     def has_permission(self, request, view):
-        if not request.user.is_authenticated:
+        if view.action == 'list':
+            return True
+        elif not request.user.is_authenticated and view.action in {'create', 'update', 'partial_update', 'destroy'}:
             return False
         return super().has_permission(request, view)
 
