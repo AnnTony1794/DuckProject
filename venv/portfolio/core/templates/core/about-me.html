@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %}
+{% block title %}
+About
+{% endblock %}
+
+{% block bg_image %}
+{% load static %}
+style="background-image: url('{% static 'core/img/about.jpg' %}');"
+{% endblock %}
+
+{% block page_title %}
+{% endblock %}
+
+{% block page_subtitle %}
+{% endblock %}
+
+{% block content %}
+
+	<!-- Why Choose Us -->
+	<div id="features" class="section md-padding bg-grey">
+
+            <!-- Container -->
+            <div class="container">
+
+                 <!-- About slider -->
+                 <div class="col-md-6">
+                        <div id="about-slider" class="owl-carousel owl-theme">
+                            <img class="img-responsive" src="{% static 'core/img/me.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <!-- /About slider -->
+
+                <!-- Row -->
+                <div class="row">
+
+                    <!-- why choose us content -->
+                    <div class="col-md-6">
+                        <div class="section-header">
+                            <h2 class="title">Juan Antonio Facundo Flores</h2>
+                        </div>
+                        <p >
+                           Hola, soy Antonio, un programador que ama lo que hace y
+                           disfruta pasar sus tardes aprendiendo nuevas tecnologías.<br><br>
+                           Creé esta página pensando en darme a conocer con otros desarrolladores,
+                           alumnos que estudian programación y posibles ofertas de empleo.
+
+                        </p>
+                        <br>
+                        <p>Mis habilidades cubren los siguientes campos:</p>
+                        <div class="feature">
+                            <i class="fa fa-check"></i>
+                            <p>SQL</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fa fa-check"></i>
+                            <p>Java / Android.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fa fa-check"></i>
+                            <p>Python / Django</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fa fa-check"></i>
+                            <p>Git</p>
+                        </div>
+                        <div class="feature">
+                                <i class="fa fa-check"></i>
+                                <p>Linux</p>
+                            </div>
+                    </div>
+                    <!-- /why choose us content -->
+
+
+
+                </div>
+                <!-- /Row -->
+
+            </div>
+            <!-- /Container -->
+
+        </div>
+        <!-- /Why Choose Us -->
+
+{% endblock %}
